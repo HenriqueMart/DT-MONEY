@@ -5,7 +5,7 @@
             "description": "Desenvolvimento de Site",
             "type": "income",
             "category": "Venda",
-            "price": 14000,
+            "price": 1400,
             "createAt": "2025-10-21T17:44:26.643Z"
         },
         {
@@ -15,6 +15,14 @@
             "category": "Alimentação",
             "price": 50,
             "createAt": "2025-10-21T17:00:26.643Z"
+        },
+        {
+            "id": 3,
+            "description": "Rockeatseat",
+            "type": "outcome",
+            "category": "Educação",
+            "price": 1980,
+            "createAt": "2025-11-21T17:25:26.643Z"
         }
 
     ]
