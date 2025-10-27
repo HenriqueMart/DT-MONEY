@@ -80,8 +80,6 @@ export function NewTransactionModal(){
                                         <ArrowCircleDown size={24}/>
                                         Saída
                                     </TransactionTypeButton>
-
-
                                 </TransactionType>
                             )
                         }}
