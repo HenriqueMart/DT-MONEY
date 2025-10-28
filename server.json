@@ -1,29 +1,68 @@
 {
-    "transactions": [
-        {
-            "id": 1,
-            "description": "Desenvolvimento de Site",
-            "type": "income",
-            "category": "Venda",
-            "price": 1400,
-            "createAt": "2025-10-21T17:44:26.643Z"
-        },
-        {
-            "id": 2,
-            "description": "Hamburger",
-            "type": "outcome",
-            "category": "Alimentação",
-            "price": 50,
-            "createAt": "2025-10-21T17:00:26.643Z"
-        },
-        {
-            "id": 3,
-            "description": "Rockeatseat",
-            "type": "outcome",
-            "category": "Educação",
-            "price": 1980,
-            "createAt": "2025-11-21T17:25:26.643Z"
-        }
-
-    ]
+  "transactions": [
+    {
+      "id": "1",
+      "description": "Desenvolvimento de Site",
+      "type": "income",
+      "category": "Venda",
+      "price": 1400,
+      "createAt": "2025-10-21T17:44:26.643Z"
+    },
+    {
+      "id": "2",
+      "description": "Hamburger",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 50,
+      "createAt": "2025-10-21T17:00:26.643Z"
+    },
+    {
+      "id": "3",
+      "description": "Rockeatseat",
+      "type": "outcome",
+      "category": "Educação",
+      "price": 1980,
+      "createAt": "2025-11-21T17:25:26.643Z"
+    },
+    {
+      "id": "ec7e",
+      "description": "Pizza",
+      "category": "Alimentação",
+      "price": 50,
+      "type": "income",
+      "createAt": "2025-10-28T14:50:33.107Z"
+    },
+    {
+      "id": "d0b7",
+      "description": "Celular",
+      "category": "Tecnologia",
+      "price": 1000,
+      "type": "income",
+      "createAt": "2025-10-28T14:58:48.568Z"
+    },
+    {
+      "id": "db25",
+      "description": "Almoço",
+      "category": "Alimentação",
+      "price": 15,
+      "type": "outcome",
+      "createAt": "2025-10-28T15:19:57.345Z"
+    },
+    {
+      "id": "9512",
+      "description": "Curso",
+      "category": "Educação",
+      "price": 1500,
+      "type": "outcome",
+      "createAt": "2025-10-28T15:33:28.064Z"
+    },
+    {
+      "id": "033a",
+      "description": "Corte de cabelo",
+      "category": "Beleza",
+      "price": 30,
+      "type": "outcome",
+      "createAt": "2025-10-28T15:43:07.437Z"
+    }
+  ]
 }

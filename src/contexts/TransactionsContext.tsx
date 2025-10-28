@@ -1,6 +1,4 @@
-import { Item } from "@radix-ui/react-radio-group";
-import type { promises } from "dns";
-import { createContext, useEffect, useState, type ReactNode } from "react";
+import {createContext, useEffect, useState, type ReactNode } from "react";
 import { api } from "../lib/axios";
 
 interface Transaction {
@@ -11,16 +9,23 @@ interface Transaction {
     category: string;
     createAt: string;
 }
-
-
-interface TransactionContextType {
-    transactions: Transaction[];
-    fetchTransactions: (query?: string) => Promise<void>;
+interface CreateTransactionInput {
+    description: string;
+    price: number;
+    category: string;
+    type: 'income' | 'outcome';
 }
 
 interface TransactionsProviderProps {
     children: ReactNode;
 }
+
+interface TransactionContextType {
+    transactions: Transaction[];
+    fetchTransactions: (query?: string) => Promise<void>;
+    createTransaction: (data:CreateTransactionInput) => Promise<void>;
+}
+
 
 export const TransactionsContext = createContext({} as TransactionContextType); //Dessa forma não tem necessidade de definir os valores dentro do Context sendo que a próprio atributo estará passando.
 
@@ -36,11 +41,17 @@ export function TransactionsProvider({children}: TransactionsProviderProps){
         //Para ter a forma assíncrona o typescript e React não aceita no useEffect, precisa criar um function para utilizar
     
         async function fetchTransactions(query?: string) {
-           const response = await api.get('/transactions');
+           const response = await api.get('/transactions', {
+            params: {
+                _sort: 'createAt',
+                _order: 'desc',
+            }
+           });
             
             /*const response = await fetch('/transactions'); //Requisição
             const data = await response.json(); //Pega a resposta no formato Json*/
      
+            
 
 
             const filtered = query
@@ -57,10 +68,26 @@ export function TransactionsProvider({children}: TransactionsProviderProps){
                   })
                 : response.data;
 
-            console.log(response);
+            
             
             setTransactions(filtered);
 
+        }
+
+        async function createTransaction(data: CreateTransactionInput) {
+            const {description,category,price,type} = data;
+
+
+            const response = await api.post('transactions', {
+                description,
+                category,
+                price,
+                type,
+                createAt: new Date()
+            
+            })
+
+            setTransactions(state => [response.data, ...state]);
         }
     
         useEffect(() => { //chamada 1 vez
@@ -70,7 +97,8 @@ export function TransactionsProvider({children}: TransactionsProviderProps){
     return(
         <TransactionsContext.Provider value={{
             transactions,
-            fetchTransactions
+            fetchTransactions,
+            createTransaction
             }}>
             {children}
         </TransactionsContext.Provider>

@@ -1,10 +1,12 @@
 //Arquivo de Tipagem para o Styled Components
 
 import 'styled-components';
-import type { defaultTheme } from '../styles/themes/default';
+import { defaultTheme } from '../styles/themes/default';
 
-type ThemeType = typeof defaultTheme
+type ThemeType = typeof defaultTheme;
 
 declare module 'styled-components' {
-    export interface  DefaultTheme extends ThemeType {}
+    // Use a type alias instead of an empty interface to satisfy
+    // the `@typescript-eslint/no-empty-object-type` rule.
+    export type DefaultTheme = ThemeType;
 }

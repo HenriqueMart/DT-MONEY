@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import * as Dialog from '@radix-ui/react-dialog';
 import { RadioGroup, RadioGroupItem } from "@radix-ui/react-radio-group";
-import { Radio, RadioButton } from "phosphor-react";
 
 export const Overlay = styled(Dialog.Overlay)`
     position: fixed;
