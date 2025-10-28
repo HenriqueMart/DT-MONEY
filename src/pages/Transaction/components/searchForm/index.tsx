@@ -3,12 +3,15 @@ import { SearchFormContainer } from "./style";
 import { useForm } from "react-hook-form";
 import * as z from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useContext } from "react";
 import { TransactionsContext } from "../../../../contexts/TransactionsContext";
+import { useContextSelector } from "use-context-selector";
 
 export function SearchForm(){
 
-    const {fetchTransactions} = useContext(TransactionsContext);
+    //Observando só uma atributo ou método do contexto para não gerar renderização desnecessária
+    const fetchTransactions = useContextSelector(TransactionsContext, (context) => {
+        return context.fetchTransactions
+    });
 
     const searchFormSchema = z.object({
         query: z.string(),

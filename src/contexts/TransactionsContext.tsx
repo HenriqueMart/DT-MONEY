@@ -1,5 +1,6 @@
-import {createContext, useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, useCallback, type ReactNode } from "react";
 import { api } from "../lib/axios";
+import { createContext } from "use-context-selector";
 
 interface Transaction {
     id: number;
@@ -40,21 +41,15 @@ export function TransactionsProvider({children}: TransactionsProviderProps){
     
         //Para ter a forma assíncrona o typescript e React não aceita no useEffect, precisa criar um function para utilizar
     
-        async function fetchTransactions(query?: string) {
+        const fetchTransactions = useCallback(async (query?: string) => {
            const response = await api.get('/transactions', {
             params: {
                 _sort: 'createAt',
                 _order: 'desc',
-            }
-           });
-            
-            /*const response = await fetch('/transactions'); //Requisição
-            const data = await response.json(); //Pega a resposta no formato Json*/
-     
-            
+            },
+           })
 
-
-            const filtered = query
+           const filtered = query
                 ? response.data.filter((item: Transaction) => {
                       const q = query.toLowerCase().trim(); //trim() -> remove espaço no início e no fim da frase
 
@@ -68,15 +63,19 @@ export function TransactionsProvider({children}: TransactionsProviderProps){
                   })
                 : response.data;
 
-            
-            
             setTransactions(filtered);
+        },
+        [])
+            
+            /*const response = await fetch('/transactions'); //Requisição
+            const data = await response.json(); //Pega a resposta no formato Json*/
+     
+       
 
-        }
-
-        async function createTransaction(data: CreateTransactionInput) {
+        //Utilizando o hook callBack do React para não permitir que a função altere sendo que não tenha nem um atributos que modifica
+        const createTransaction = useCallback(
+            async (data: CreateTransactionInput) => {
             const {description,category,price,type} = data;
-
 
             const response = await api.post('transactions', {
                 description,
@@ -87,12 +86,16 @@ export function TransactionsProvider({children}: TransactionsProviderProps){
             
             })
 
-            setTransactions(state => [response.data, ...state]);
-        }
+            setTransactions((state:any) => [response.data, ...state]);
+            
+            },
+            []
+        )
     
         useEffect(() => { //chamada 1 vez
             fetchTransactions();
         }, []);
+         
 
     return(
         <TransactionsContext.Provider value={{
