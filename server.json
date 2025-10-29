@@ -63,6 +63,14 @@
       "price": 30,
       "type": "outcome",
       "createAt": "2025-10-28T15:43:07.437Z"
+    },
+    {
+      "id": "ba5f",
+      "description": "Lava Jato",
+      "category": "Limpeza Veículo ",
+      "price": 50,
+      "type": "income",
+      "createAt": "2025-10-29T23:42:27.856Z"
     }
   ]
 }

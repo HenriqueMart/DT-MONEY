@@ -94,7 +94,7 @@ export function TransactionsProvider({children}: TransactionsProviderProps){
     
         useEffect(() => { //chamada 1 vez
             fetchTransactions();
-        }, []);
+        }, [fetchTransactions]);
          
 
     return(
