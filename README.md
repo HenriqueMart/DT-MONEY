@@ -1,73 +1,108 @@
-# React + TypeScript + Vite
+# 📘 DT MONEY
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Esse Projeto tem como Objetivo permitir controle financeiro de entrada e saída de um usuário de forma intuitiva e dinânima, utilizando Json-server para simular uma API para envio e recebimento de dados.
+> Para simular o funcionamento de uma API real, foi utilizado o Json-server, possibilitando o envio e recebimento de dados em tempo real. O foco principal está em demonstrar funcionalidades financeiras essenciais de maneira interativa, priorizando a experiência do usuário e a eficiência na manipulação dos dados.
+---
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [Styled Components](https://styled-components.com/)
+- [Json-server](https://github.com/typicode/json-server)
+- [AXIOS](https://axios-http.com/ptbr/docs/intro)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📸 Demonstração
 
-## Expanding the ESLint configuration
+### Tela Inicial  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![Home](/src/assets/Home.webp)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Tela de Pesquisa
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+![Search](/src/assets/Search.webp) 
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Tela de novo lançamento
+
+![Lançamento](/src/assets/NewActive)
+
+---
+
+## 📂 Estrutura de Pastas
+
+```bash
+public/
+src/
+├── @types/
+├── assets/
+├── components/
+├── context/
+├── hooks/
+├── lib/
+├── pages/
+├── styles/
+├── utils/
+─ App.tsx
+─ Router.tsx
+─ main.tsx
+```
+## ⚙️ Funcionalidades
+
+- ✅ Visualiar Lançamento, Baixa e total
+
+- ✅ Visualizar todos os lançamento e detalhe
+
+- ✅ Adicionar novo lançamento
+
+- ✅ Visualizar de forma ordenada 
+
+# 🧠 Aprendizados
+
+- Uso de Hooks (Portal, hook personalizado, controller, CallBack e Memo)
+
+- Json Server
+
+- Utilização do AXIOS
+
+- Perfomance
+
+-  Renderização do React
+
+
+# 🛠️ Como Rodar Localmente
+
+```bash
+
+# Clone o repositório
+git clone [https://github.com/HenriqueMart/CoffeeDelivery](https://github.com/HenriqueMart/DT-MONEY)
+
+# Acesse a pasta
+cd DT-MONEY)
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# 🔗 Deploy
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+➡️ Clique aqui para acessar o código da aplicação [codigo](https://github.com/HenriqueMart/DT-MONEY)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Ou:
+
+🟢 Veja visualmente o projeto [Site]() 
+
+# 🤝 Contribuições
+Sinta-se à vontade para abrir issues e enviar pull requests.
+
+# 📄 Licença
+Este projeto está sob a licença MIT.
+
+# 👨‍💻 Autor
+Feito por Desenvolvedor Henrique Martins
