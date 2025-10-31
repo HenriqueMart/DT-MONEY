@@ -36,7 +36,7 @@ export function Transaction(){
                                     </td>
                                     <td>{transaction.category}</td>
                                     <td>
-                                        {dataFormatter.format(new Date(transaction.createAt))} {/*Transformando de String para Date */}
+                                        {dataFormatter.format(new Date(transaction.createdAt))} {/*Transformando de String para Date */}
                                     </td>
                                     
                                 </tr>

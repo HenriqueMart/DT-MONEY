@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback, type ReactNode } from "react";
 import { api } from "../lib/axios";
 import { createContext } from "use-context-selector";
+import { number } from "zod";
 
 interface Transaction {
     id: number;
@@ -8,7 +9,7 @@ interface Transaction {
     type: 'income' | 'outcome';
     price: number;
     category: string;
-    createAt: string;
+    createdAt: string;
 }
 interface CreateTransactionInput {
     description: string;
@@ -42,15 +43,21 @@ export function TransactionsProvider({children}: TransactionsProviderProps){
         //Para ter a forma assíncrona o typescript e React não aceita no useEffect, precisa criar um function para utilizar
     
         const fetchTransactions = useCallback(async (query?: string) => {
-           const response = await api.get('/transactions', {
+           const response = await api.get<Transaction[]>('/transactions', {
             params: {
-                _sort: 'createAt',
+                _sort: 'createdAt',
                 _order: 'desc',
             },
            })
 
-           const filtered = query
-                ? response.data.filter((item: Transaction) => {
+        
+           const order = response.data.sort((a, b) => {
+            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+           });
+
+            const filtered = () => {
+                return query
+                ? order.filter((item: Transaction) => {
                       const q = query.toLowerCase().trim(); //trim() -> remove espaço no início e no fim da frase
 
                       return ( // Pesquisando por todos os campos do array retornado da API de forma manual. Pois o server Json Não faz essa pesquisa global depois da versão 0.75.0 
@@ -58,10 +65,12 @@ export function TransactionsProvider({children}: TransactionsProviderProps){
                           item.category.toLowerCase().includes(q) ||
                           item.type.toLowerCase().includes(q) ||
                           String(item.price).includes(q) ||
-                          item.createAt.toLowerCase().includes(q)
+                          item.createdAt.toLowerCase().includes(q)
                       );
                   })
                 : response.data;
+            }
+       
 
             setTransactions(filtered);
         },
@@ -82,7 +91,7 @@ export function TransactionsProvider({children}: TransactionsProviderProps){
                 category,
                 price,
                 type,
-                createAt: new Date()
+                createdAt: new Date()
             
             })
 
