@@ -11,6 +11,19 @@ export const SummaryContainer = styled.section`
     gap: 2rem;
 
     margin-top: -5rem;
+
+    @media(max-width: 550px){
+        display: flex;
+        flex-direction: column;
+      
+    }
+
+    @media(max-width: 800px){
+        grid-template-columns: repeat(2, 1fr);
+        :last-child{
+            grid-column: 1/ -1;
+        }
+    }
 `
 
 //Props -> passando informação para Variável
@@ -40,4 +53,9 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     ${props => props.variant === 'green' && css`
         background-color: ${props => props.theme['green-700']};
     `}
+    @media(max-width: 400px){
+
+    }
+
+
 `

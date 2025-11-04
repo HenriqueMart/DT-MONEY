@@ -12,9 +12,6 @@ export function Transaction(){
    const transactions = useContextSelector(TransactionsContext, (context) => {
     return context.transactions;
    });
-
-   
-        
     return (
         <div>
             <Header/>

@@ -64,6 +64,10 @@ export const Content = styled(Dialog.Content)`
                     transition: background-color 0.2s;
                 }
     }
+    @media(max-width: 525px){
+        min-width: 25%;
+        padding: 2.5rem 2rem;
+    }
 
 `
 

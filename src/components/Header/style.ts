@@ -4,6 +4,7 @@ import styled from "styled-components";
  export const HeaderContainer = styled.header`
     background-color: ${props => props.theme["gray-900"]};
     padding: 2.5rem 0 7.5rem;
+    
  `;
 
  export const HeaderContent = styled.div`
@@ -15,6 +16,13 @@ import styled from "styled-components";
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media(max-width: 400px){
+      img{  
+         width: 125px;
+      }
+         
+   }
  
  `;
 
@@ -31,5 +39,10 @@ import styled from "styled-components";
    transition: background-color 0.2s;
    &:hover{
       background-color: ${props => props.theme["green-700"]};
+   }
+
+   @media(max-width: 400px){
+      font-size: 10px;
+      height: 40px;
    }
  `
