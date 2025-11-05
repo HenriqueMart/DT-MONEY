@@ -8,5 +8,5 @@ type ThemeType = typeof defaultTheme;
 declare module 'styled-components' {
     // Use a type alias instead of an empty interface to satisfy
     // the `@typescript-eslint/no-empty-object-type` rule.
-    export type DefaultTheme = ThemeType;
+    export interface DefaultTheme extends ThemeType {};
 }
