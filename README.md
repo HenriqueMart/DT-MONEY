@@ -27,7 +27,7 @@
 
 ### Tela de novo lançamento
 
-![Lançamento](/src/assets/NewActive)
+![Lançamento](/src/assets/NewActive.webp)
 
 ---
 
@@ -96,7 +96,7 @@ npm run dev
 
 Ou:
 
-🟢 Veja visualmente o projeto [Site]() 
+🟢 Veja visualmente o projeto [Site](https://henriquemart.github.io/DT-MONEY/) 
 
 # 🤝 Contribuições
 Sinta-se à vontade para abrir issues e enviar pull requests.
